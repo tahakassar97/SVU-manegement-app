@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/back"
+    tools:context=".SplashScreenActivity">
+
+    <ImageView
+        android:layout_width="@dimen/big"
+        android:layout_height="@dimen/big"
+        android:src="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/usernameET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/min"
+        android:layout_marginHorizontal="@dimen/large"
+        android:background="@drawable/custom_input"
+        android:padding="@dimen/min"
+        android:hint="@string/username" />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/min"
+        android:layout_marginHorizontal="@dimen/large"
+        android:background="@drawable/custom_input"
+        android:padding="@dimen/min"
+        android:hint="@string/password" />
+
+    <CheckBox
+        android:id="@+id/adminCB"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/admin" />
+
+    <Button
+        android:id="@+id/loginBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="@dimen/large"
+        android:text="@string/login" />
+
+    <TextView
+        android:id="@+id/needRegisterTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/i_do_not_have_an_accound"
+        android:textSize="@dimen/mid"
+        android:layout_marginTop="@dimen/mid"
+        android:layout_marginEnd="@dimen/mid"
+        android:paddingRight="@dimen/min"
+        android:layout_gravity="end"/>
+
+
+</LinearLayout>

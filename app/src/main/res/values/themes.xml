@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Svu303_v2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorOnPrimary">@color/dark_orange</item>
+        <item name="colorAccent">@color/orange</item>
+        <item name="android:textViewStyle">@color/orange</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/dark_orange</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/dark_orange</item>
+    </style>
+
+
+    <style name="Theme.Blue" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorOnPrimary">@color/dark_blue</item>
+        <item name="colorAccent">@color/blue</item>
+        <item name="android:textViewStyle">@color/blue</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/dark_blue</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/dark_blue</item>
+    </style>
+
+    <style name="Theme.Burble" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/burble</item>
+        <item name="colorOnPrimary">@color/dark_burble</item>
+        <item name="colorAccent">@color/burble</item>
+        <item name="android:textViewStyle">@color/burble</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/dark_burble</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/dark_burble</item>
+    </style>
+</resources>

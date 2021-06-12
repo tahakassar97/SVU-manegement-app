@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">svu303_v2</string>
+    <string name="change_app_theme">Change App Theme</string>
+    <string name="orange">Orange</string>
+    <string name="sounds">Sounds</string>
+    <string name="ok">Ok</string>
+    <string name="burble">Burble</string>
+    <string name="blue">Blue</string>
+    <string name="turn_on_sounds">Turn On Sounds</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="i_do_not_have_an_accound">do not have an account?</string>
+    <string name="admin">Admin</string>
+    <string name="name">Name</string>
+    <string name="tests">Tests</string>
+    <string name="exams">Exams</string>
+    <string name="manage_tests">Manage Tests</string>
+</resources>
