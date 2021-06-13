@@ -11,8 +11,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tec.svu303_v2.QuestionsManagementActivity;
 import com.tec.svu303_v2.R;
 import com.tec.svu303_v2.StaticData;
+import com.tec.svu303_v2.TestActivity;
 import com.tec.svu303_v2.sqlite_database.models.Test;
 
 import java.util.ArrayList;
@@ -44,17 +46,17 @@ public class TestTypeAdapter extends RecyclerView.Adapter<TestTypeAdapter.ViewHo
         if (staticData.getCurrentUserID() == 0) {
             holder.itemView.setOnClickListener(v -> {
                 staticData.playSound();
-//                Intent intent = new Intent(context, QuestionManagementActivity.class);
-//                intent.putExtra("testId", test.getId());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, QuestionsManagementActivity.class);
+                intent.putExtra("testId", test.getId());
+                context.startActivity(intent);
             });
         } else {
             holder.editIV.setImageResource(R.drawable.ic_info);
             holder.itemView.setOnClickListener(v -> {
                 staticData.playSound();
-//                Intent intent = new Intent(context, TestActivity.class);
-//                intent.putExtra("testId", test.getId());
-//                context.startActivity(intent);
+                Intent intent = new Intent(context, TestActivity.class);
+                intent.putExtra("testId", test.getId());
+                context.startActivity(intent);
             });
         }
     }

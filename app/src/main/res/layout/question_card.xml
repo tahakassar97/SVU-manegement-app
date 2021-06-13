@@ -14,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/light"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingHorizontal="@dimen/min">
@@ -28,29 +27,28 @@
                 android:textSize="@dimen/large" />
 
             <ImageView
+                android:id="@+id/deleteIV"
+                android:layout_width="@dimen/x_large"
+                android:layout_height="@dimen/x_large"
+                android:src="@drawable/ic_delete" />
+
+            <ImageView
                 android:id="@+id/editIV"
                 android:layout_width="@dimen/x_large"
                 android:layout_height="@dimen/x_large"
                 android:layout_margin="@dimen/min"
                 android:src="@drawable/ic_edit" />
 
-            <ImageView
-                android:id="@+id/deleteIV"
-                android:layout_width="@dimen/x_large"
-                android:layout_height="@dimen/x_large"
-                android:src="@drawable/ic_delete" />
-
         </LinearLayout>
 
         <TextView
             android:id="@+id/gradeTV"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/min"
             android:layout_marginBottom="@dimen/min"
-            android:layout_height="wrap_content"
             android:text="Title"
             android:textSize="@dimen/large" />
-
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

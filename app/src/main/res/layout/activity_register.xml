@@ -17,6 +17,7 @@
     <EditText
         android:id="@+id/usernameET"
         android:layout_width="match_parent"
+        android:inputType="textPersonName"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/min"
         android:layout_marginHorizontal="@dimen/large"
@@ -30,6 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/min"
         android:layout_marginHorizontal="@dimen/large"
+        android:inputType="textPersonName"
         android:background="@drawable/custom_input"
         android:padding="@dimen/min"
         android:hint="@string/name" />
@@ -53,7 +55,7 @@
         android:textColor="@color/white"
         android:layout_marginTop="@dimen/x_large"
         android:layout_marginHorizontal="@dimen/large"
-        android:text="@string/login" />
+        android:text="@string/register" />
 
 
 </LinearLayout>

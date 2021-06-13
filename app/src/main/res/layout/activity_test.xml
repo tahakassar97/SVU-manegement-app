@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".TestActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/questionTitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/mid"
+                android:layout_marginVertical="@dimen/x_large"
+                android:textSize="@dimen/mid" />
+
+            <TextView
+                android:id="@+id/firstAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/mid"
+                android:background="@color/light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="@dimen/large" />
+
+
+            <TextView
+                android:id="@+id/secondAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/mid"
+                android:layout_marginTop="@dimen/min"
+                android:background="@color/light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="@dimen/large" />
+
+
+            <TextView
+                android:id="@+id/thirdAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/mid"
+                android:layout_marginTop="@dimen/min"
+                android:background="@color/light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="@dimen/large" />
+
+
+            <TextView
+                android:id="@+id/fourthAns"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/mid"
+                android:layout_marginTop="@dimen/min"
+                android:background="@color/light"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:textSize="@dimen/large" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x_large"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/backIB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/x_large"
+                    android:text="@string/prev"
+                    android:textColor="@color/white"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/nextIB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/endExam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/large"
+                android:layout_marginTop="@dimen/x_large"
+                android:text="@string/end_exam"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

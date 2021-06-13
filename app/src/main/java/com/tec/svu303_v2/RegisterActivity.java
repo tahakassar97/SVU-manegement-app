@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Student student = new Student(nameET.getText().toString().trim(), usernameET.getText().toString().trim(),
                             passwordET.getText().toString().trim());
                     student.register(staticData.getDatabaseManager());
-                    Toast.makeText(this, "Registered successfully, Login to your account",
+                    Toast.makeText(this, "Done, Login to your account",
                             Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();
@@ -48,5 +48,11 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        staticData.playSound();
     }
 }

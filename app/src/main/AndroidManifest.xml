@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.Svu303_v2">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".AnswerManagementActivity" />
+        <activity android:name=".UpdateQuestionActivity" />
+        <activity android:name=".QuestionsManagementActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".AdminMainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashScreenActivity">
