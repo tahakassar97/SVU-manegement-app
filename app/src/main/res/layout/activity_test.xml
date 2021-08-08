@@ -18,12 +18,28 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/cancleAnswer"
+                android:layout_width="35dp"
+                android:layout_gravity="end"
+                android:layout_marginRight="@dimen/mid"
+                android:layout_height="35dp"
+                android:src="@drawable/ic_cancel" />
+
             <TextView
                 android:id="@+id/questionTitleTV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/mid"
-                android:layout_marginVertical="@dimen/x_large"
+                android:layout_marginVertical="@dimen/mid"
+                android:textSize="@dimen/mid" />
+
+            <TextView
+                android:id="@+id/questionMarkTV"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/large"
                 android:textSize="@dimen/mid" />
 
             <TextView

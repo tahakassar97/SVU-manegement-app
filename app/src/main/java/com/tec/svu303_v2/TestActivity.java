@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.tec.svu303_v2.sqlite_database.models.Question;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -31,9 +33,11 @@ public class TestActivity extends AppCompatActivity {
     TextView ans2;
     TextView ans3;
     TextView ans4;
+    TextView questionMarkTV;
     ArrayList<Answer> studentAnswers;
     HashMap<Integer, Integer> mMap;
     Button endExamBTN;
+    ImageView cancleAnswerIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +52,15 @@ public class TestActivity extends AppCompatActivity {
         ans4 = findViewById(R.id.fourthAns);
         next = findViewById(R.id.nextIB);
         back = findViewById(R.id.backIB);
+        questionMarkTV = findViewById(R.id.questionMarkTV);
         question = findViewById(R.id.questionTitleTV);
+        cancleAnswerIV = findViewById(R.id.cancleAnswer);
         answers = new ArrayList<>();
         studentAnswers = new ArrayList<>();
         testId = (int) getIntent().getSerializableExtra("testId");
         questions = Question.getAll(appData.getDatabaseManager(), testId);
+        questions = checkAnswers(questions);
+        questions = shuffleArray(questions);
         questionNumber = 0;
         questionId = questions.get(questionNumber).getId();
         mMap = new HashMap<>();
@@ -63,7 +71,7 @@ public class TestActivity extends AppCompatActivity {
             appData.playSound();
             if (mMap.get(questionNumber) == null) {
                 studentAnswers.add(questionNumber,
-                        new Answer(questionId, answers.get(0).getId(), 0));
+                        new Answer(questionId, -1, 0));
                 mMap.put(questionNumber, 0);
             }
             appData.setBackgroundNoColor(ans1, this);
@@ -91,64 +99,83 @@ public class TestActivity extends AppCompatActivity {
         });
 
         ans1.setOnClickListener(v -> {
-            appData.playSound();
-            appData.setBackgroundColor((TextView) v, this);
-            appData.setBackgroundNoColor(ans2, this);
-            appData.setBackgroundNoColor(ans3, this);
-            appData.setBackgroundNoColor(ans4, this);
             try {
-                studentAnswers.remove(questionNumber);
+                appData.playSound();
+                appData.setBackgroundColor((TextView) v, this);
+                appData.setBackgroundNoColor(ans2, this);
+                appData.setBackgroundNoColor(ans3, this);
+                appData.setBackgroundNoColor(ans4, this);
+                try {
+                    studentAnswers.remove(questionNumber);
+                } catch (Exception e) {
+
+                }
+                studentAnswers.add(questionNumber,
+                        new Answer(questionId, answers.get(0).getId(), answers.get(0).getStatus()));
+                mMap.put(questionNumber, 1);
             } catch (Exception e) {
 
             }
-            studentAnswers.add(questionNumber,
-                    new Answer(questionId, answers.get(0).getId(), answers.get(0).getStatus()));
-            mMap.put(questionNumber, 1);
         });
         ans2.setOnClickListener(v -> {
-            appData.playSound();
-            appData.setBackgroundColor((TextView) v, this);
-            appData.setBackgroundNoColor(ans1, this);
-            appData.setBackgroundNoColor(ans3, this);
-            appData.setBackgroundNoColor(ans4, this);
             try {
-                studentAnswers.remove(questionNumber);
+
+                appData.playSound();
+                appData.setBackgroundColor((TextView) v, this);
+                appData.setBackgroundNoColor(ans1, this);
+                appData.setBackgroundNoColor(ans3, this);
+                appData.setBackgroundNoColor(ans4, this);
+                try {
+                    studentAnswers.remove(questionNumber);
+                } catch (Exception e) {
+
+                }
+                studentAnswers.add(questionNumber,
+                        new Answer(questionId, answers.get(1).getId(), answers.get(1).getStatus()));
+                mMap.put(questionNumber, 2);
             } catch (Exception e) {
 
             }
-            studentAnswers.add(questionNumber,
-                    new Answer(questionId, answers.get(1).getId(), answers.get(1).getStatus()));
-            mMap.put(questionNumber, 2);
         });
         ans3.setOnClickListener(v -> {
-            appData.playSound();
-            appData.setBackgroundColor((TextView) v, this);
-            appData.setBackgroundNoColor(ans2, this);
-            appData.setBackgroundNoColor(ans1, this);
-            appData.setBackgroundNoColor(ans4, this);
             try {
-                studentAnswers.remove(questionNumber);
+
+                appData.playSound();
+                appData.setBackgroundColor((TextView) v, this);
+                appData.setBackgroundNoColor(ans2, this);
+                appData.setBackgroundNoColor(ans1, this);
+                appData.setBackgroundNoColor(ans4, this);
+                try {
+                    studentAnswers.remove(questionNumber);
+                } catch (Exception e) {
+
+                }
+                studentAnswers.add(questionNumber,
+                        new Answer(questionId, answers.get(2).getId(), answers.get(2).getStatus()));
+                mMap.put(questionNumber, 3);
             } catch (Exception e) {
 
             }
-            studentAnswers.add(questionNumber,
-                    new Answer(questionId, answers.get(2).getId(), answers.get(2).getStatus()));
-            mMap.put(questionNumber, 3);
         });
         ans4.setOnClickListener(v -> {
-            appData.playSound();
-            appData.setBackgroundNoColor(ans2, this);
-            appData.setBackgroundNoColor(ans3, this);
-            appData.setBackgroundNoColor(ans1, this);
-            appData.setBackgroundColor((TextView) v, this);
             try {
-                studentAnswers.remove(questionNumber);
+
+                appData.playSound();
+                appData.setBackgroundNoColor(ans2, this);
+                appData.setBackgroundNoColor(ans3, this);
+                appData.setBackgroundNoColor(ans1, this);
+                appData.setBackgroundColor((TextView) v, this);
+                try {
+                    studentAnswers.remove(questionNumber);
+                } catch (Exception e) {
+
+                }
+                studentAnswers.add(questionNumber,
+                        new Answer(questionId, answers.get(3).getId(), answers.get(3).getStatus()));
+                mMap.put(questionNumber, 4);
             } catch (Exception e) {
 
             }
-            studentAnswers.add(questionNumber,
-                    new Answer(questionId, answers.get(3).getId(), answers.get(3).getStatus()));
-            mMap.put(questionNumber, 4);
         });
 
         endExamBTN.setOnClickListener(v -> {
@@ -194,42 +221,90 @@ public class TestActivity extends AppCompatActivity {
         try {
             answers.clear();
             answers = Question.questionAnswers(appData.getDatabaseManager(), questionId);
+            questionMarkTV.setText(String.valueOf(questions.get(questionNumber).getGrade()));
             question.setText(questions.get(questionNumber).getTitle());
             ans1.setText(answers.get(0).getTitle());
             ans2.setText(answers.get(1).getTitle());
             ans3.setText(answers.get(2).getTitle());
             ans4.setText(answers.get(3).getTitle());
             if (mMap.get(questionNumber) != null) {
-                if (mMap.get(questionNumber) == 1) {
-                    appData.setBackgroundColor(ans1, this);
-                    appData.setBackgroundNoColor(ans2, this);
-                    appData.setBackgroundNoColor(ans3, this);
-                    appData.setBackgroundNoColor(ans4, this);
-                } else if (mMap.get(questionNumber) == 2) {
-                    appData.setBackgroundColor(ans2, this);
-                    appData.setBackgroundNoColor(ans1, this);
-                    appData.setBackgroundNoColor(ans3, this);
-                    appData.setBackgroundNoColor(ans4, this);
-                } else if (mMap.get(questionNumber) == 3) {
-                    appData.setBackgroundNoColor(ans2, this);
-                    appData.setBackgroundNoColor(ans1, this);
-                    appData.setBackgroundNoColor(ans4, this);
-                    appData.setBackgroundColor(ans3, this);
-                } else if (mMap.get(questionNumber) == 4) {
-                    appData.setBackgroundNoColor(ans2, this);
-                    appData.setBackgroundNoColor(ans3, this);
-                    appData.setBackgroundNoColor(ans1, this);
-                    appData.setBackgroundColor(ans4, this);
+                switch (questionNumber) {
+                    case 1: {
+                        appData.setBackgroundColor(ans1, this);
+                        appData.setBackgroundNoColor(ans2, this);
+                        appData.setBackgroundNoColor(ans3, this);
+                        appData.setBackgroundNoColor(ans4, this);
+                        break;
+                    }
+                    case 2: {
+                        appData.setBackgroundColor(ans2, this);
+                        appData.setBackgroundNoColor(ans1, this);
+                        appData.setBackgroundNoColor(ans3, this);
+                        appData.setBackgroundNoColor(ans4, this);
+                        break;
+                    }
+                    case 3: {
+                        appData.setBackgroundNoColor(ans2, this);
+                        appData.setBackgroundNoColor(ans1, this);
+                        appData.setBackgroundNoColor(ans4, this);
+                        appData.setBackgroundColor(ans3, this);
+                        break;
+                    }
+                    case 4: {
+                        appData.setBackgroundNoColor(ans2, this);
+                        appData.setBackgroundNoColor(ans3, this);
+                        appData.setBackgroundNoColor(ans1, this);
+                        appData.setBackgroundColor(ans4, this);
+                        break;
+                    }
                 }
             }
         } catch (Exception e) {
-            Toast.makeText(this, "Error happened", Toast.LENGTH_SHORT).show();
         }
+
+        cancleAnswerIV.setOnClickListener(v -> {
+            appData.playSound();
+            try {
+                studentAnswers.remove(questionNumber);
+            } catch (Exception e) {
+
+            }
+            studentAnswers.add(questionNumber,
+                    new Answer(questionId, answers.get(0).getId(), answers.get(0).getStatus()));
+            mMap.put(questionNumber, 0);
+            appData.setBackgroundNoColor(ans1, this);
+            appData.setBackgroundNoColor(ans2, this);
+            appData.setBackgroundNoColor(ans3, this);
+            appData.setBackgroundNoColor(ans4, this);
+        });
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         appData.playSound();
+    }
+
+    private static ArrayList<Question> shuffleArray(ArrayList<Question> array) {
+        int index;
+        Question temp;
+        Random random = new Random();
+        for (int i = array.size() - 1; i > 0; i--) {
+            index = random.nextInt(i + 1);
+            temp = array.get(index);
+            array.set(index, array.get(i));
+            array.set(i, temp);
+        }
+        return array;
+    }
+
+    private ArrayList<Question> checkAnswers(ArrayList<Question> questions) {
+        for (Question question : questions) {
+            answers = Question.questionAnswers(appData.getDatabaseManager(), question.getId());
+            if (answers.size() == 0) {
+                questions.remove(question);
+            }
+        }
+        return questions;
     }
 }

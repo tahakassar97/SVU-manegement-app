@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         newAccountTV = findViewById(R.id.needRegisterTV);
 
         newAccountTV.setOnClickListener(v -> {
+            staticData.playSound();
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
 
@@ -48,8 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                                     staticData.getDatabaseManager());
                     if (student != null) {
                         staticData.setCurrentUserID(student.getId());
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         finish();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } else {
                         Toast.makeText(this, "Please Check Your Information",
                                 Toast.LENGTH_SHORT).show();
@@ -58,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                     if (usernameET.getText().toString().trim().equals("admin@303") &&
                             passwordET.getText().toString().trim().equals("admin0000")) {
                         staticData.setCurrentUserID(0);
-                        startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
                         finish();
+                        startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
                     } else {
                         Toast.makeText(this, "Please Check Your Information",
                                 Toast.LENGTH_SHORT).show();

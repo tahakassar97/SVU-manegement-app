@@ -49,6 +49,15 @@
 
             </LinearLayout>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/min"
+                android:text="@string/syrian_virtual_university"
+                android:textAlignment="center"
+                android:textSize="@dimen/large"
+                tools:ignore="SpUsage" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/testsTypesRV"
                 android:layout_width="match_parent"
